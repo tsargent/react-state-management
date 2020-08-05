@@ -1,12 +1,13 @@
 import React from 'react'
 import Todo from './Todo'
 
-const Todos = () => (
-  <div>
-    <Todo />
-    <Todo />
-    <Todo />
-  </div>
-);
+const Todos = ({ todos, toggleTodo }) => {
+  console.log(todos);
+  return (
+    <div>
+      {todos.map(({id, text}) => <Todo key={id} text={text} toggleTodo={toggleTodo} id={id} />)}
+    </div>
+  )
+};
 
 export default Todos
