@@ -4,6 +4,8 @@ import './App.css';
 import Todos from './Todos';
 import NewTodo from './NewTodo';
 
+import initialState from './initialState';
+
 const ADD_TODO = 'ADD_TODO'
 const TOGGLE_TODO = 'TOGGLE_TODO'
 
@@ -25,7 +27,7 @@ const reducer = (state, action) => {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, [])
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const addTodo = useCallback((text) => {
     dispatch({
