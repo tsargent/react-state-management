@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const NewTodo = ({ addTodo }) => {
+const NewTodo = React.memo(({ addTodo }) => {
   const [text, setText] = useState('')
   const onChange = (e) => setText(e.target.value)
   const onSubmit = (e) => {
@@ -14,5 +14,5 @@ const NewTodo = ({ addTodo }) => {
       <button type="submit">Add</button>
     </form>
   )
-} 
+})
 export default NewTodo
