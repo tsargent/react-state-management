@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useCallback } from 'react';
 import { v4 as id } from 'uuid';
 import './App.css';
 import Todos from './Todos';
-import AddTodo from './AddTodo';
+import NewTodo from './NewTodo';
 
 const ADD_TODO = 'ADD_TODO'
 const TOGGLE_TODO = 'TOGGLE_TODO'
@@ -27,23 +27,23 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, [])
 
-  const addTodo = (text) => {
+  const addTodo = useCallback((text) => {
     dispatch({
       type: ADD_TODO,
       payload: text,
     });
-  };
+  }, [dispatch]);
 
-  const toggleTodo = (id) => {
+  const toggleTodo = useCallback((id) => {
     dispatch({
       type: TOGGLE_TODO,
       payload: id,
     });
-  }
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <AddTodo addTodo={addTodo}/>
+      <NewTodo addTodo={addTodo}/>
       <Todos todos={state} toggleTodo={toggleTodo} />
     </div>
   );

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
-const AddTodo = ({ addTodo }) => {
+const NewTodo = ({ addTodo }) => {
   const [text, setText] = useState('')
   const onChange = (e) => setText(e.target.value)
   const onSubmit = (e) => {
     e.preventDefault()
     addTodo(text)
   }
+  console.log('Render AddTodo');
   return (
     <form onSubmit={onSubmit}>
       <input type="text" onChange={onChange} />
@@ -14,4 +15,4 @@ const AddTodo = ({ addTodo }) => {
     </form>
   )
 } 
-export default AddTodo
+export default NewTodo
