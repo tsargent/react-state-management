@@ -1,59 +1,23 @@
-import React, { useReducer, useCallback } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import TodosPage from "./screens/Todos";
+import HomePage from "./screens/Home";
 import "./App.css";
-import Todos from "./Todos";
-import NewTodo from "./NewTodo";
-
-import initialState from "./initialState";
-
-const ADD_TODO = "ADD_TODO";
-const TOGGLE_TODO = "TOGGLE_TODO";
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      return [action.payload, ...state];
-    case TOGGLE_TODO:
-      return state.map((todo) => {
-        if (todo.id !== action.payload) {
-          return todo;
-        } else {
-          return { ...todo, complete: !todo.complete };
-        }
-      });
-    default:
-      return state;
-  }
-};
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const addTodo = useCallback(
-    (text) => {
-      dispatch({
-        type: ADD_TODO,
-        payload: text,
-      });
-    },
-    [dispatch]
-  );
-
-  const toggleTodo = useCallback(
-    (id) => {
-      dispatch({
-        type: TOGGLE_TODO,
-        payload: id,
-      });
-    },
-    [dispatch]
-  );
-
   return (
-    <div className="App">
-      <h1>Todos</h1>
-      <NewTodo addTodo={addTodo} />
-      <Todos todos={state} toggleTodo={toggleTodo} />
-    </div>
+    <BrowserRouter>
+      <nav className="nav">
+        <Link to="/" className="nav-item">Home</Link>
+        <Link to="/todos-reducer" className="nav-item">Todos Reducer</Link>
+      </nav>
+      <main className="main">
+        <Routes>
+          <Route path="/todos-reducer" element={<TodosPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 };
 

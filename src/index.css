@@ -67,3 +67,14 @@ button {
 .todo {
   animation: fadein 0.2s;
 }
+
+.nav {
+}
+
+.nav-item {
+  margin: 0 0.5rem;
+}
+
+.main {
+  margin: 0.5rem;
+}
