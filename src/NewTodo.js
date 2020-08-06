@@ -9,7 +9,7 @@ const NewTodo = React.memo(({ addTodo }) => {
   }
   console.log('Render AddTodo');
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="new-todo">
       <input type="text" onChange={onChange} />
       <button type="submit">Add</button>
     </form>
