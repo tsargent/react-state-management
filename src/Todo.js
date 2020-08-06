@@ -2,7 +2,7 @@ import React from "react";
 
 const Todo = React.memo(({ todo, toggleTodo }) => {
   return (
-    <div>
+    <div className="todo">
       <label htmlFor={todo.id} className="flex">
         <input
           id={todo.id}
