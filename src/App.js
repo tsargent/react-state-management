@@ -26,7 +26,7 @@ const reducer = (state, action) => {
   }
 }
 
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const addTodo = useCallback((text) => {
