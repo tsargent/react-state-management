@@ -29,11 +29,18 @@ body {
 }
 
 button {
+  background-color: rgb(58, 120, 255);
+  color: white;
   padding: 0.5rem;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
   margin-left: 0.5rem;
+  transition: all 0.2s;
+}
+
+.disabled {
+  background-color: rgb(190, 190, 190);
 }
 
 .new-todo {
@@ -42,4 +49,8 @@ button {
 
 .flex {
   display: flex;
+}
+
+.complete {
+  text-decoration: line-through;
 }

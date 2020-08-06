@@ -1,16 +1,16 @@
 import React from "react";
 
-const Todo = React.memo(({ text, checked, id, toggleTodo }) => {
+const Todo = React.memo(({ todo, toggleTodo }) => {
   return (
     <div>
-      <label htmlFor={id} className="flex">
+      <label htmlFor={todo.id} className="flex">
         <input
-          id={id}
+          id={todo.id}
           type="checkbox"
-          checked={checked}
-          onChange={() => toggleTodo(id)}
+          checked={todo.complete}
+          onChange={() => toggleTodo(todo.id)}
         />
-        <span>{text}</span>
+        <span className={todo.complete ? "complete" : ""}>{todo.text}</span>
       </label>
     </div>
   );

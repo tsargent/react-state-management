@@ -8,11 +8,13 @@ const NewTodo = React.memo(({ addTodo }) => {
     addTodo(text);
     setText("");
   };
-  console.log("Render AddTodo");
+  const buttonClass = !text ? "disabled" : "";
   return (
     <form onSubmit={onSubmit} className="new-todo">
       <input type="text" value={text} onChange={onChange} />
-      <button type="submit">Add</button>
+      <button type="submit" className={buttonClass}>
+        Add
+      </button>
     </form>
   );
 });
