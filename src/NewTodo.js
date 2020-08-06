@@ -6,11 +6,12 @@ const NewTodo = React.memo(({ addTodo }) => {
   const onSubmit = (e) => {
     e.preventDefault()
     addTodo(text)
+    setText('')
   }
   console.log('Render AddTodo');
   return (
     <form onSubmit={onSubmit} className="new-todo">
-      <input type="text" onChange={onChange} />
+      <input type="text" value={text} onChange={onChange} />
       <button type="submit">Add</button>
     </form>
   )
