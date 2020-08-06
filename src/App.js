@@ -1,5 +1,4 @@
 import React, { useReducer, useCallback } from "react";
-import { v4 as id } from "uuid";
 import "./App.css";
 import Todos from "./Todos";
 import NewTodo from "./NewTodo";
@@ -12,7 +11,7 @@ const TOGGLE_TODO = "TOGGLE_TODO";
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [{ text: action.payload, id: id(), complete: false }, ...state];
+      return [action.payload, ...state];
     case TOGGLE_TODO:
       return state.map((todo) => {
         if (todo.id !== action.payload) {
