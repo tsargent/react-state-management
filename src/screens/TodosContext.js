@@ -1,6 +1,8 @@
 import React from "react";
 import Todos from "../todos-context/Todos";
 import NewTodo from "../todos-context/NewTodo";
+import { TodosProvider } from "../todos-context/TodosContext";
+
 const TodosScreen = () => {
   return (
     <div className="App">
@@ -11,4 +13,10 @@ const TodosScreen = () => {
   );
 };
 
-export default TodosScreen;
+const TodosProviderScreen = () => (
+  <TodosProvider>
+    <TodosScreen />
+  </TodosProvider>
+)
+
+export default TodosProviderScreen

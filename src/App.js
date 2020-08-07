@@ -3,14 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodosReducerPage from "./screens/TodosReducer";
 import TodosContextPage from "./screens/TodosContext";
 import HomePage from "./screens/Home";
-import { TodosProvider } from "./todos-context/TodosContext";
 import "./App.css";
-
-const TodosContextElement = () => (
-  <TodosProvider>
-    <TodosContextPage />
-  </TodosProvider>
-);
 
 const App = () => {
   return (
@@ -23,7 +16,7 @@ const App = () => {
       <main className="main">
         <Routes>
           <Route path="/todos-reducer" element={<TodosReducerPage />} />
-          <Route path="/todos-context" element={<TodosContextElement />} />
+          <Route path="/todos-context" element={<TodosContextPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </main>
