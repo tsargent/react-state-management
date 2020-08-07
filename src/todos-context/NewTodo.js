@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { v4 as id } from "uuid";
+import { TodosContext} from "./TodosContext";
 
-const NewTodo = React.memo(({ addTodo }) => {
+const NewTodo = React.memo(() => {
+  const { addTodo } = useContext(TodosContext);
   const [text, setText] = useState("");
   const onChange = (e) => setText(e.target.value);
   const onSubmit = (e) => {

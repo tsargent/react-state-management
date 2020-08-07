@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodosContext } from './TodosContext';
+const Todo = React.memo(({ todo }) => {
 
-const Todo = React.memo(({ todo, toggleTodo }) => {
+  const { toggleTodo } = useContext(TodosContext);
+
   return (
     <div className="todo">
       <label htmlFor={todo.id} className="flex">
