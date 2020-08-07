@@ -1,7 +1,7 @@
 import React, { useCallback, useReducer } from "react";
 import Todos from "../todos-context/Todos";
 import NewTodo from "../todos-context/NewTodo";
-import initialState from "../initialState";
+import initialState from "../todos-context/initialState";
 
 const ADD_TODO = "ADD_TODO";
 const TOGGLE_TODO = "TOGGLE_TODO";
