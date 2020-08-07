@@ -6,7 +6,7 @@ import { TodosProvider } from "../todos-context/TodosContext";
 const TodosScreen = () => {
   return (
     <div className="App">
-      <h1>Todos</h1>
+      <h1>Todos: Context</h1>
       <NewTodo />
       <Todos />
     </div>

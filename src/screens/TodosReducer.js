@@ -48,7 +48,7 @@ const TodosScreen = () => {
 
   return (
     <div className="App">
-      <h1>Todos</h1>
+      <h1>Todos: Reducer</h1>
       <NewTodo addTodo={addTodo} />
       <Todos todos={state} toggleTodo={toggleTodo} />
     </div>
