@@ -1,10 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import TodosReducerPage from "./screens/TodosReducer";
+import TodosContextPage from "./screens/TodosContext";
 import HomePage from "./screens/Home";
 import "./App.css";
-
-const TodosReducerElement = lazy(() => import('./screens/TodosReducer'));
-const TodosContextElement = lazy(() => import('./screens/TodosContext'));
 
 const App = () => {
   return (
@@ -15,13 +14,11 @@ const App = () => {
         <Link to="/todos-context" className="nav-item">Todos Context</Link>
       </nav>
       <main className="main">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/todos-reducer" element={<TodosReducerElement />} />
-            <Route path="/todos-context" element={<TodosContextElement />} />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path="/todos-reducer" element={<TodosReducerPage />} />
+          <Route path="/todos-context" element={<TodosContextPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </main>
     </BrowserRouter>
   );
