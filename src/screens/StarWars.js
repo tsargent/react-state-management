@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from '../hooks/useFetch';
 
 const StarWarsScreen = () => {
-  const {isLoading, isError, response} = useFetch('https://swapi.dev/api/people');
+  const {isLoading, isError, response} = useFetch('http://swapi.dev/api/people');
   return (
     <div className="App">
       <h1>Star Wars</h1>
